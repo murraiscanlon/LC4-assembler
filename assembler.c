@@ -1,13 +1,8 @@
-/***************************************************************************
-* file name   : assembler.c                                               *
-* author      : tjf & you                                                 *
-* description : This program will assemble a .ASM file into a .OBJ file   *
-*               This program will use the "asm_parser" library to achieve *
-*			     its functionality.										   *
-*                                                                         *
-***************************************************************************
-*
-*/
+/**
+ * This program will assemble a .ASM file into a .OBJ file
+ * This program will use the "asm_parser" library to achieve
+ * its functionality.
+ */
 
 #include <stdio.h>
 #include <string.h>
@@ -36,6 +31,7 @@ int main(int argc, char** argv) {
     //Parse main args to get filename provided by user
     if(argc < 2){
         printf("error1: usage: ./assembler <assembly_file.asm>\n");
+        printf("%s", argv[0]); //testing
         return 1;
     } else {
         filename = argv[1];
@@ -46,6 +42,7 @@ int main(int argc, char** argv) {
     filestatus = read_asm_file (filename, program);
     if (filestatus != 0){
         printf("error2: read_asm_file() failed.\n");
+        printf((const char *) filestatus, program);
         return 2;
     }
 
